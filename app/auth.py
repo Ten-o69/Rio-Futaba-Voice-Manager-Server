@@ -33,6 +33,22 @@ def create_refresh_token(data: dict):
     return jwt.encode(to_encode, JWT_SECRET_KEY, algorithm=JWT_ALGORITHM)
 
 
+def verify_token(token: str, expected_type: str):
+    """
+    Проверяет JWT-токен. Возвращает данные, если токен валиден.
+    """
+    try:
+        payload = jwt.decode(token, JWT_SECRET_KEY, algorithms=[JWT_ALGORITHM])
+
+        if payload.get("type") != expected_type:
+            raise JWTError("invalid token type")
+
+        return payload
+
+    except (JWTError, ValidationError):
+        return None
+
+
 def verify_access_token(token: str):
     """
     Проверяет короткоживущий токен доступа (access token).
