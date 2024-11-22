@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 CDIR = os.getcwd() + "/"
 PATH_CONFIG_MODULE = os.path.join(CDIR, "config")
 PATH_SECRETS_FILE = os.path.join(CDIR, "secrets.env")
+PATH_UPLOAD_DIR = os.path.join(CDIR, "../files")
 
 load_dotenv(PATH_SECRETS_FILE)
 
