@@ -1,3 +1,4 @@
+from datetime import datetime
 from sqlalchemy.orm import Session
 from app.models import File
 
@@ -7,6 +8,7 @@ def upload_file(
         client_id: int,
         filename: str,
         file_path: str,
+        uploaded_at: datetime,
         size: int,
         file_type: str
 ):
@@ -17,6 +19,7 @@ def upload_file(
         client_id=client_id,
         filename=filename,
         file_path=file_path,
+        uploaded_at=uploaded_at,
         size=size,
         file_type=file_type,
     )
