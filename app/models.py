@@ -17,6 +17,7 @@ class Device(Base):
     id = Column(Integer, primary_key=True, index=True)  # Уникальный идентификатор
     device_id = Column(String, unique=True, nullable=False, index=True)  # Уникальный ID устройства
     hashed_secret = Column(String, nullable=False)  # Хэшированный секретный ключ
+    mac_address = Column(String, unique=True, nullable=False)
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))  # Время регистрации
     updated_at = Column(
         DateTime,
@@ -26,6 +27,9 @@ class Device(Base):
 
     # Связь с токенами
     tokens = relationship("Token", back_populates="owner")
+
+    # Связь с файлами
+    files = relationship("File", back_populates="owner")
 
 
 class Token(Base):
