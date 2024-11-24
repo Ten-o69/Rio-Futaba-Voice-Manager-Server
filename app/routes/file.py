@@ -11,7 +11,7 @@ from fastapi import (
 )
 from sqlalchemy.orm import Session
 from app.database import SessionLocal
-from app.crud.client import get_client_by_email
+from app.crud.device import get_device_by_device_id
 from app.crud.file import upload_file as crud_upload_file
 from app.schemas.file import FileCreate, FileBase, FileResponse
 from app.auth import verify_access_token
