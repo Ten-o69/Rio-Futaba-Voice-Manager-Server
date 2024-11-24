@@ -28,6 +28,7 @@ MANIFEST
 .idea/
 test/
 *.env
+migrations/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
