@@ -1,4 +1,5 @@
-from pydantic import BaseModel, EmailStr
+from datetime import datetime
+from pydantic import BaseModel
 
 
 class DeviceBase(BaseModel):
@@ -11,8 +12,9 @@ class DeviceCreate(DeviceBase):
 
 class DeviceResponse(DeviceBase):
     id: int
-    device_id: int
-    created_at: str
+    created_at: datetime
+    access_token: str
+    refresh_token: str
 
     class Config:
         orm_mode = True

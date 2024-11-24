@@ -37,7 +37,9 @@ def create_device(
     )
 
     response_json = {
-        "client": new_device,
+        "id": new_device.id,
+        "device_id": new_device.device_id,
+        "created_at": new_device.created_at,
         "access_token": access_token,
         "refresh_token": refresh_token,
     }
