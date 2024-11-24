@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routes import client, file
+from app.routes import device, file
 
 app = FastAPI(title="Voice Manager API")
 
