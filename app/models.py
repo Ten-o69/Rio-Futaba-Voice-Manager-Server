@@ -35,7 +35,7 @@ class Token(Base):
     __tablename__ = 'tokens'
 
     id = Column(Integer, primary_key=True, index=True)  # Уникальный идентификатор
-    token = Column(String, unique=True, nullable=False)  # Сам JWT токен
+    jti = Column(String, unique=True, nullable=False)  # Сам JWT токен
     device_id = Column(Integer, ForeignKey('devices.id'), nullable=False)  # Внешний ключ на устройство
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))  # Время создания
     expires_at = Column(DateTime, nullable=False)  # Время истечения действия токена
@@ -52,7 +52,7 @@ class File(Base):
     __tablename__ = 'files'
 
     id = Column(Integer, primary_key=True, index=True)  # Уникальный идентификатор
-    client_id = Column(Integer, ForeignKey('clients.id'), nullable=False)  # Внешний ключ на клиента
+    client_id = Column(Integer, ForeignKey('devices.id'), nullable=False)  # Внешний ключ на клиента
     filename = Column(String, nullable=False)  # Имя файла
     file_path = Column(String, nullable=False)  # Путь к файлу
     uploaded_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))  # Время загрузки
@@ -60,4 +60,4 @@ class File(Base):
     file_type = Column(String, nullable=False)  # Тип файла
 
     # Обратная связь с клиентом
-    owner = relationship("Client", back_populates="files")
+    owner = relationship("Device", back_populates="files")

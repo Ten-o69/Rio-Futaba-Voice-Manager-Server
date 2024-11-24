@@ -17,3 +17,6 @@ def init_db():
     Создание всех таблиц в базе данных.
     """
     Base.metadata.create_all(bind=engine)
+
+
+init_db()
