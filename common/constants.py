@@ -18,3 +18,6 @@ JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY")  # Секретный ключ
 JWT_ALGORITHM = os.getenv("JWT_ALGORITHM")  # Алгоритм подписи токенов
 JWT_ACCESS_TOKEN_EXPIRE_MINUTES = int(os.getenv("JWT_ACCESS_TOKEN_EXPIRE_MINUTES"))  # Время жизни access-токена (в минутах)
 JWT_REFRESH_TOKEN_EXPIRE_DAYS = int(os.getenv("JWT_REFRESH_TOKEN_EXPIRE_DAYS"))  # Время жизни refresh-токена (в днях)
+
+# api secret key
+API_SECRET_KEY = os.getenv("API_SECRET_KEY")
